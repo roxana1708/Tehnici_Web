@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Site</title>
+	<link href="newBeginning.css" rel="stylesheet" type="text/css">
+</head>
+<body>	
+	<!-- Slideshow container -->
+	<h4>Until the Gallery Opening: </h4>
+	<p id="countdown"></p>
+
+	<div id="streetArt">
+		<h1 style="color: white;">Street Art Gallery</h1>
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+			    <div class="numbertext">1 / 3</div>
+			    <img src="home15.jpeg">
+			</div>
+
+			<div class="mySlides fade">
+			    <div class="numbertext">2 / 3</div>
+			    <img src="home16.jpeg" style="width:100%">
+			</div>
+
+			<div class="mySlides fade">
+			    <div class="numbertext">3 / 3</div>
+			    <img src="home17.jpeg" style="width:100%">
+			</div>
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+			<br>
+			<div style="text-align:center">
+			  	<span class="dot" onclick="currentSlide(1)"></span> 
+			  	<span class="dot" onclick="currentSlide(2)"></span> 
+			  	<span class="dot" onclick="currentSlide(3)"></span> 
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<!-- Articole-->
+	<div id="articol" class="wrapper">
+		<h1>Travel Articles</h1>
+		<div style="width: 20%; margin-left: 10%; margin-right: 20%; float: left; text-align: center;"><h2 onclick="nextArt()">Next Article</h2></div>
+		<div style="width: 20%; margin-right: 10%; margin-left: 20%; float: left; text-align: center;"><h2 onclick="prevArt()">Prev Article</h2></div>
+		<div id="article"></div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div id="numberOfWords"></div>
+	</div>
+
+
+	<!-- Tab Gallery -->
+	<div id="best" class="wrapper">
+		<h1>Best of 2018</h1>
+		<div class="row">
+			<div class="column">
+			    <img src="home9.jpeg" alt="Grecia" onclick="tabGallery(this);" style="border-width: 2px; border-style: solid; border-color: #6C7F66; ">
+			</div>
+			<div class="column">
+			    <img src="home10.jpeg" alt="Grecia" onclick="tabGallery(this);" style="border-width: 2px; border-style: solid; border-color: #262D30;">
+			</div>
+			<div class="column">
+				<img src="home7.jpeg" alt="Grecia" onclick="tabGallery(this);" style="border-width: 2px; border-style: solid; border-color: #D8D4AF;">
+			</div>
+			<div class="column">
+				<img src="home6.jpeg" alt="Italia" onclick="tabGallery(this);" style="border-width: 2px; border-style: solid; border-color: #1D1915;">
+			</div>
+		</div>
+
+		<!-- The expanding image container -->
+		<div class="container">
+			<img id="expandedImg" style="width:100%; height: 660px;">
+			<div id="imgtext"></div>
+		</div>
+	</div>
+
+
+	<!-- Trigger the Modal -->
+	<div id="picMonth" class="wrapper">
+		<h1>Click to Zoom In:</h1>
+		<img id="picOfMonth" src="home3.jpeg" alt="Cassis" style="width:40%; margin-left: 30%;">
+
+		<div id="zoom" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="extPic">
+			<div id="text"></div>
+		</div>
+	</div>
+
+	<!-- Different image every minute-->
+	<div id="diff" class="wrapper">
+		<h1>Different Inspiration Every Minute</h1>
+		<img id="imgMin" alt="Some image" src="diff1.jpeg"/>
+	</div>
+
+	<!-- Search bar Image -->
+	<div id="cautare" class="wrapper">
+		<h1>Search an Image:</h1>
+		<div id="searchBarImage">
+			<input type="text" id="search" name="search" size="40" onkeydown="searchBar()">
+			<div id="searchKey"></div>
+			<div id="searchRes"></div>
+		</div>
+	</div>
+	
+
+	<!-- Map Image -->
+	<div id="map" class="wrapper">
+		<h1 style="color: black;">Navigate the Map</h1>
+		<img id="mapImg" src="mapBW.jpg" onmousemove="showCoords(event)" onmouseout="clearCoor()">
+		<div id="mapCoor"></div>
+	</div>
+
+
+
+
+	<div id="random" style="background-image: url('background.jpg'); height: 200px;">
+		<div style="width: 30%; height: 200px; margin-left: 35%; background-color: white; position: relative;">
+		<h1>Random Quotes</h1>
+		<div class = "quotes" style="text-align: center;">
+		    <div id="quote">
+		      <p id="thequote">Find your quote</p>
+			  <p id="author">- Author</p>
+	    	</div>
+	    	<button onclick="newQuote()">Get another quote</button>
+	    </div>
+	</div>
+    </div>
+
+
+    <div id="a/p" style="border-width: 5px; border-style: double; margin-top: 100px; margin-bottom: 100px; padding-bottom: 20px;">
+    <h1>How would life be without photography? Try:</h1>
+	<div id="appear/disappear" style="margin-left: 45%;">
+		<button id="appear" type='text' onclick="appear()">Appear</button>
+		<button id="disappear" type='text' onclick="disappear()">Disappear</button>
+	</div>
+	</div>
+
+
+<div id="drag_and_drop">
+    <h1 style="color: white;">Photography Themes. Your Order</h1>
+	  <div class="list" style="width: 50%; margin-left: 42%;">
+	    <input type="text" class="input" placeholder="Add themes in the list"/>
+	    <span class="add">+</span>
+	  </div>
+	  <ol>
+	    <li class="draggable" draggable="true">Landscape</li>
+	    <li class="draggable" draggable="true">Food</li>
+	    <li class="draggable" draggable="true">Travel</li>
+	    <li class="draggable" draggable="true">Portrets</li>
+	    <li class="draggable" draggable="true">Nature</li>
+	  </ol>
+  </div>
+
+	<!-- Menu -->
+	<div class="menu">
+		<div class="box-rotate rotate" style="margin-top: 7px;"><h1>Interactive Photography Website</h1></div>
+		<ul>
+			<li><a href="#streetArt" onclick="stopLink()"><h2>Street Art</h2></a></li>
+			<li><a href="#articol"><h2>Articles</h2></li>
+			<li><a href="#best"><h2>Best of 2018</h2></li>
+			<li><a href="#picMonth"><h2>Picture of the Month</h2></li>
+			<li><a href="#cautare"><h2>Search</h2></li>
+			<li><a href="#map"><h2>Map</h2></li>
+			<li>
+				<div class="dropdown">
+				  	<button class="dropbtn">More...</button>
+				  	<div class="dropdown-options">
+						<a href="https://ro.yahoo.com/?p=us" target="_blank" id="mail">Mail</a>
+						<a href="https://www.facebook.com" target="_blank">Facebook</a>
+						<a href="https://www.instagram.com" target="_blank">Instagram</a>
+				  	</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<div class="context" hidden>
+	  <div class="context_item"> 
+	    <div class="inner_item" onclick="location.reload();">Reload</div> 
+	  </div>
+	  <div class="context_item"> 
+	    <div class="inner_item" onclick="change_color()">Change Color</div> 
+	  </div>
+	  <div class="context_hr"></div>
+	  <div class="context_item"> 
+	    <div class="inner_item" onclick="goToAnchor('streetArt')">Beginning</div> 
+	  </div>
+	  <div class="context_item"> 
+	    <div class="inner_item" onclick="goToAnchor('drag_and_drop')">End</div> 
+	  </div>
+	</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+	function WordCount(str) { 
+	  return str.split(" ").length;
+	}
+
+	//Drag and Drop List
+	var btn = document.querySelector('.add');
+	var remove = document.querySelector('.draggable');
+	 
+	function dragStart(event) {
+	  this.style.opacity = '0.4';
+	  dragSrcEl = this;
+	  event.dataTransfer.effectAllowed = 'move';
+	  event.dataTransfer.setData('text/html', this.innerHTML);
+	};
+	 
+	function dragEnter(event) {
+	  this.classList.add('over');
+	}
+	 
+	function dragLeave(event) {
+	  event.stopPropagation();
+	  this.classList.remove('over');
+	}
+	 
+	function dragOver(event) {
+	  event.preventDefault();
+	  event.dataTransfer.dropEffect = 'move';
+	  return false;
+	}
+	 
+	function dragDrop(event) {
+	  if (dragSrcEl != this) {
+	    dragSrcEl.innerHTML = this.innerHTML;
+	    this.innerHTML = event.dataTransfer.getData('text/html');
+	  }
+	  return false;
+	}
+ 
+	function dragEnd(event) {
+	  var listItems = document.querySelectorAll('.draggable');
+
+	  [].forEach.call(listItems, function(item) {
+	    item.classList.remove('over');
+	  });
+
+	  this.style.opacity = '1';
+	  localStorage.setItem("list", document.querySelectorAll('.draggable'));
+	}
+ 
+	function addEventsDragAndDrop(el) {
+	  el.addEventListener('dragstart', dragStart, false);
+	  el.addEventListener('dragenter', dragEnter, false);
+	  el.addEventListener('dragover', dragOver, false);
+	  el.addEventListener('dragleave', dragLeave, false);
+	  el.addEventListener('drop', dragDrop, false);
+	  el.addEventListener('dragend', dragEnd, false);
+	}
+	 
+	var listItens = document.querySelectorAll('.draggable');
+	[].forEach.call(listItens, function(item) {
+	  addEventsDragAndDrop(item);
+	});
+
+
+	function addNewItem() {
+	  var newItem = document.querySelector('.input').value;
+	  if (newItem != '') {
+	    document.querySelector('.input').value = '';
+	    var li = document.createElement('li');
+	    var attr = document.createAttribute('draggable');
+	    var ul = document.querySelector('ol');
+	    li.className = 'draggable';
+	    attr.value = 'true';
+	    li.setAttributeNode(attr);
+	    li.appendChild(document.createTextNode(newItem));
+	    ul.appendChild(li);
+	    addEventsDragAndDrop(li);
+	    localStorage.setItem("list", document.querySelectorAll('.draggable'));
+	    var offsetHeight = document.getElementById('drag_and_drop').offsetHeight + 50;
+	    document.getElementById("drag_and_drop").style.height = offsetHeight + "px";
+	  }
+	}
+	 
+	btn.addEventListener('click', addNewItem);
+
+
+	//Key Combinations
+	$(window).keypress(function(event) {
+	    if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
+	    alert("Ctrl-S pressed");
+	    event.preventDefault();
+	    location.reload();
+	    return false;
+	});
+
+	document.onkeyup = function(e) {
+	  if (e.which == 77) {
+	    alert("M key was pressed");
+	  } else if (e.ctrlKey && e.which == 66) {
+	    alert("Ctrl + B shortcut combination was pressed");
+	  } else if (e.ctrlKey && e.altKey && e.which == 89) {
+	    alert("Ctrl + Alt + Y shortcut combination was pressed");
+	  } else if (e.ctrlKey && e.altKey && e.shiftKey && e.which == 85) {
+	    alert("Ctrl + Alt + Shift + U shortcut combination was pressed");
+	  }
+	};
+
+	//Qoute Generator
+	var quotes = [
+		"The greatest gift of life is friendship, and I have received it. ",
+		"Only I can change my life. No one can do it for me. ",
+		"Life is 10% what happens to you and 90% how you react to it.", 
+		"There is only one happiness in this life, to love and be loved.", 
+		"We must let go of the life we have planned, so as to accept the one that is waiting for us.", 
+		"Life isn't about finding yourself. Life is about creating yourself.", 
+		"So many books, so little time.",
+		"In three words I can sum up everything I've learned about life: it goes on.",
+		"Don’t walk in front of me… I may not follow. Don’t walk behind me… I may not lead. Walk beside me… just be my friend",
+		"The fool doth think he is wise, but the wise man knows himself to be a fool."
+	]
+	
+	 var author = [
+		"- Hubert H. Humphrey",
+		"- Carol Burnett",
+		"- Charles R. Swindoll",
+		"- George Sand",
+		"- Joseph Campbell",
+		"- George Bernard Shaw",
+		"- Frank Zappa",
+		"- Robert Frost",
+		"- Albert Camus",
+		"- William Shakespeare"
+	]
+	
+	function newQuote(){
+		var random_no = Math.floor(Math.random() * (quotes.length));
+		document.getElementById('thequote').innerHTML = quotes[random_no];
+		document.getElementById('author').innerHTML = author[random_no];
+	}
+
+	//Make Image Appear/Disappear
+	function appear() {
+		var imgs = document.images;
+		for(i = 0; i < imgs.length; i++) {
+			imgs[i].classList.remove("disappear");
+		}
+	}
+
+	function disappear() {
+		var imgs = document.images;
+		for(i = 0; i < imgs.length; i++) {
+			imgs[i].className = "disappear";
+		}
+	}
+
+	//Slide Gallery
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		if (n > slides.length) {slideIndex = 1} 
+		if (n < 1) {slideIndex = slides.length}
+		for (i = 0; i < slides.length; i++) {
+		    slides[i].style.display = "none"; 
+		}
+		for (i = 0; i < dots.length; i++) {
+		    dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex-1].style.display = "block"; 
+		dots[slideIndex-1].className += " active";
+	}
+
+	//Tab Gallery
+	function tabGallery(imgs) {
+	  var expandImg = document.getElementById("expandedImg");
+	  var imgText = document.getElementById("imgtext");
+
+	  expandImg.src = imgs.src;
+	  imgText.innerHTML = imgs.alt;
+
+	  expandImg.parentElement.style.display = "block";
+	  expandImg.parentElement.style.borderStyle = "none";
+
+	  expandImg.style.height = "520px";
+	  expandImg.style.borderWidth = "5px";
+	  expandImg.style.borderStyle = "solid";
+	  expandImg.style.borderColor = window.getComputedStyle(imgs, null).getPropertyValue("border-color");
+	}
+
+	//Zoom Image
+	var modal = document.getElementById("zoom");
+	var img = document.getElementById("picOfMonth");
+	var modalImg = document.getElementById("extPic");
+	var captionText = document.getElementById("text");
+	img.onclick = function(){
+	  modal.style.display = "block";
+	  modalImg.src = this.src;
+	  captionText.innerHTML = this.alt;
+	}
+
+	var span = document.getElementsByClassName("close")[0];
+
+	span.onclick = function() { 
+	  modal.style.display = "none";
+	}
+
+
+	//Articles
+	var cnt = 0;
+	function prevArt() {
+		if(cnt > 1) {
+			cnt = cnt - 1
+			var xhttp = new XMLHttpRequest();
+	  		xhttp.onreadystatechange = function() {
+		  		if (this.readyState == 4 && this.status == 200) {
+		      		document.getElementById("article").innerHTML = this.responseText;
+		      		document.getElementById("numberOfWords").innerHTML = "Words:  " + WordCount(this.responseText);
+		      	}
+	  		};
+	  		xhttp.open("GET", "travel" + cnt + ".txt", true);
+	  		xhttp.send();
+		}
+	}
+
+	function nextArt() { 
+		if(cnt < 3) {
+			cnt = cnt + 1
+			var xhttp = new XMLHttpRequest();
+	  		xhttp.onreadystatechange = function() {
+		  		if (this.readyState == 4 && this.status == 200) {
+		      		document.getElementById("article").innerHTML = this.responseText;
+		      		document.getElementById("numberOfWords").innerHTML = "Words:  " + WordCount(this.responseText);
+		      	}
+	  		};
+	  		xhttp.open("GET", "travel" + cnt + ".txt", true);
+	  		xhttp.send();
+		}
+	}
+
+	//Change picture every min
+	var urlImg = 1;
+	setInterval(function() {
+		if(urlImg > 3) {
+			urlImg = 1;
+			var myImg = document.getElementById('imgMin');
+	    	myImg.src = "diff" + urlImg + ".jpeg";
+	    	urlImg = urlImg + 1;
+		}
+		else {
+			var myImg = document.getElementById('imgMin');
+	    	myImg.src = "diff" + urlImg + ".jpeg";
+	    	urlImg = urlImg + 1;
+		}
+	}, 60000);
+
+	//Search image
+	function searchBar() {
+		var key = event.key;
+  		document.getElementById("searchKey").innerHTML = "The pressed key was: " + key;
+
+  		let input = document.getElementById("search").value; 
+		input=input.toLowerCase(); 
+		let x = ["stockholm", "hanovra", "grecia", "brasov"];
+		//console.log(input);
+		for (i = 0; i < x.length; i++) {  
+			if (x[i].toLowerCase().includes(input) && input != '') { 
+			    var rez = document.createElement("IMG");
+			    rez.className = "rezSearch";
+			    rez.src = x[i] + ".jpeg";
+
+			    $("#searchRes").empty();
+			    document.getElementById("searchRes").appendChild(rez); 
+			        break;
+			    } 
+			}
+	}
+
+	//Map
+	function showCoords(event) {
+	  var x = event.pageX;
+	  var y = event.pageY;
+	  var coor = "X coords: " + x + ", Y coords: " + y;
+	  document.getElementById("mapCoor").innerHTML = coor;
+	}
+
+	function clearCoor() {
+	  document.getElementById("mapCoor").innerHTML = "";
+	}
+
+	function openWin(link) {
+  		window.open(link, "", "width=500,height=300");
+	}
+
+	function closeWin() {
+  		myWindow.close();
+	}
+
+	//Opreste link meniu
+	function stopLink() {
+		document.getElementById("mail").addEventListener("click", function(event){
+	  		event.preventDefault();
+		});
+	}
+
+	//Date Countdown
+	var countDownDate = new Date("Jan 7, 2021 1:29:25").getTime();
+
+	var x = setInterval(function() {
+
+	  var now = new Date().getTime();
+
+	  var distance = countDownDate - now;
+
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+	  + minutes + "m " + seconds + "s ";
+
+	  
+	  if (distance < 0) {
+	    clearInterval(x);
+	    document.getElementById("demo").innerHTML = "EXPIRED";
+	  }
+	}, 1000);
+
+
+	//Context Menu
+	$(document).on("contextmenu", function(event) {
+	  event.preventDefault();
+	  $(".context").show().css({top: event.pageY, left: event.pageX});
+	});
+
+	$(document).click(function() {
+	  if ($(".context").is(":hover") == false) {
+	    $(".context").fadeOut("fast");
+	  };
+	});
+
+	var color_index = 0;
+	function change_color() {
+		var font_colors = ["white", "red", "blue", "yellow", "green", "black"];
+		if(color_index < 6) { 
+			color_index = color_index+1;
+			document.getElementById("articol").style.color = font_colors[color_index]; 
+		}
+		else {
+			color_index = 0;
+			document.getElementById("articol").style.color = font_colors[0];
+		}
+	}
+
+	function goToAnchor(anchor) {
+	  var loc = document.location.toString().split('#')[0];
+	  document.location = loc + '#' + anchor;
+	  return false;
+	}
+
+</script>
+
+</body>
+</html>
